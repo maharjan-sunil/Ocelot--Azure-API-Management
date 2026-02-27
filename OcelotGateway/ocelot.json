@@ -17,7 +17,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/product",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/product",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -25,12 +25,42 @@
           "Host": "localhost",
           "Port": 7108
         }
-      ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      }
+      ]
     },
+
+    {
+      "UpstreamPathTemplate": "/gateway/product/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/product/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7108
+        }
+      ]
+    },
+
+
+
+
+
+    //{
+    //  "UpstreamPathTemplate": "/gateway/product",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "DownstreamPathTemplate": "/api/product",
+    //  "DownstreamScheme": "https",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 7108
+    //    }
+    //  ]
+    //  //"AuthenticationOptions": {
+    //  //  "AuthenticationProviderKey": "Bearer",
+    //  //  "AllowedScopes": []
+    //  //}
+    //},
     {
       "UpstreamPathTemplate": "/gateway/product/{id}",
       "UpstreamHttpMethod": [ "Get", "Delete" ],
